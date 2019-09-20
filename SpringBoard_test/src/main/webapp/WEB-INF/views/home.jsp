@@ -21,20 +21,24 @@
 			<div class="form__field">
 				<label for="login__username"><svg class="icon">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span
-					class="hidden">아이디</span></label> <input id="login__username" type="text"
-					name="username" class="form__input" placeholder="아이디" required>
+					class="hidden">아이디</span></label> <input id="u_id" type="text"
+					name="u_id" class="form__input" placeholder="아이디" required>
 			</div>
 
 			<div class="form__field">
 				<label for="login__password"><svg class="icon">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use></svg><span
-					class="hidden">패스워드</span></label> <input id="login__password"
-					type="password" name="password" class="form__input"
+					class="hidden">패스워드</span></label> <input id="u_pw"
+					type="password" name="u_pw" class="form__input"
 					placeholder="패스워드" required>
 			</div>
 
 			<div class="form__field">
 				<input type="submit" value="Sign In">
+			</div>
+			
+			<div class="form__field">
+				<input type="submit" value="Guest Login">
 			</div>
 
 		</form>
