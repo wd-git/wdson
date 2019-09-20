@@ -26,5 +26,9 @@ public class UserDAOImp implements UserDAO {
 		return sqlSession.selectOne(namespace+".getPw", u_id);
 	}
 	
+	@Override
+	public int insertUser(UserVO vo) throws Exception {
+		return sqlSession.insert(namespace+".insertUser", vo);
+	}
 	
 }

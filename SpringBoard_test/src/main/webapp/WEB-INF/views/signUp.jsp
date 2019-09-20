@@ -9,41 +9,61 @@
 <link href="<c:url value="/resources/css/loginbox.css" />" rel="stylesheet">
 
 
-<title>로그인</title>
+<title>회원가입</title>
 
 </head>
 
 <body class="align">	
+
 	<div class="grid">
-		<form action="doLogin" method="POST"
+		<form action="doSignUp" method="POST"
 			class="form login">
 			<div class="form__field">
-				<label for="login__username"><svg class="icon">
+				<label for="signUp_id"><svg class="icon">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span
 					class="hidden">아이디</span></label> <input id="u_id" type="text"
 					name="u_id" class="form__input" placeholder="아이디" required>
 			</div>
+			
+			<div class="form__field">
+				<label for="signUp_name"><svg class="icon">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span
+					class="hidden">아이디</span></label> <input id="u_name" type="text"
+					name="u_name" class="form__input" placeholder="이름" required>
+			</div>
 
 			<div class="form__field">
-				<label for="login__password"><svg class="icon">
+				<label for="signUp_pw"><svg class="icon">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use></svg><span
 					class="hidden">패스워드</span></label> <input id="u_pw"
 					type="password" name="u_pw" class="form__input"
 					placeholder="패스워드" required>
 			</div>
-
+			
 			<div class="form__field">
-				<input type="submit" value="Log In">
+				<label for="signUp_pwCheck"><svg class="icon">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use></svg><span
+					class="hidden">패스워드 확인</span></label> <input id="u_pw_check"
+					type="password" name="u_pw_check" class="form__input"
+					placeholder="패스워드 확인" required>
 			</div>
 			
 			<div class="form__field">
-				<input type="button" value="Guest Login" onclick="location.href='loginGuest'" >
+				<label for="login__password"><svg class="icon">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span
+					class="hidden">이 메일</span></label> <input id="u_email"
+					type="text" name="u_email" class="form__input"
+					placeholder="이 메일" required>
 			</div>
-
+		
+			<div class="form__field">
+				<input type="submit" value="Sign Up">
+			</div>
+			
 		</form>
 
 		<p class="text--center">
-			Not a member? <a href="goSignUp">Sign up now</a>
+			already member? <a href="#">go login</a>
 			<svg class="icon">
 				<use xmlns:xlink="http://www.w3.org/1999/xlink"
 					xlink:href="assets/images/icons.svg#arrow-right"></use></svg>

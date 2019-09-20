@@ -25,7 +25,13 @@ public class UserServiceImp implements UserService{
 		return dao.getPw(u_id);
 	}
 
+	@Override
+	public int insertUser(UserVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.insertUser(vo);
+	}
 
+	
 
 	
 }

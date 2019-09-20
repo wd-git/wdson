@@ -1,6 +1,7 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 <style type="text/css">
 .align {
+  position: absolute;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -14,6 +15,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  vertical-align: middle;
 }
 
 /* helpers/grid.css */
@@ -39,7 +41,7 @@ html {
   height: 100%;
 }
 
-body {background-color: #2c3338;color: #606468; font-family: 'Open Sans', sans-serif; font-size: 14px; font-size: 0.875rem; font-weight: 400; height: 100%; line-height: 1.5; margin: 0; min-height: 100vh;}
+body { background-color: #2c3338;color: #606468; font-family: 'Open Sans', sans-serif; font-size: 14px; font-size: 0.875rem; font-weight: 400; height: 100%; line-height: 1.5; margin: 0; min-height: 100vh;}
 
 /* modules/anchor.css */
 a {color: #eee;outline: 0;text-decoration: none;}
@@ -48,12 +50,14 @@ a:hover { text-decoration: underline;}
 
 /* modules/form.css */
 input {background-image: none;border: 0; color: inherit; font: inherit; margin: 0; outline: 0; padding: 0;  -webkit-transition: background-color 0.3s; transition: background-color 0.3s;}
-input[type='submit'] {cursor: pointer;}
+input[type='submit'],
+input[type='button'] {cursor: pointer;}
 
 .form {margin: -14px; margin: -0.875rem;}
 
 .form input[type='password'],
 .form input[type='text'],
+.form input[type='button'],
 .form input[type='submit'] {width: 100%;}
 
 .form__field {display: -webkit-box;display: -ms-flexbox;display: flex; margin: 14px;margin: 0.875rem;}
@@ -69,7 +73,8 @@ input[type='submit'] {cursor: pointer;}
 .login label,
 .login input[type='text'],
 .login input[type='password'],
-.login input[type='submit'] {
+.login input[type='submit'],
+.login input[type='button']{
   border-radius: 0.25rem;
   padding: 16px;
   padding: 1rem;
@@ -90,6 +95,12 @@ input[type='submit'] {cursor: pointer;}
 .login input[type='submit'] {background-color: #0371A8; color: #eee;font-weight: 700;text-transform: uppercase;}
 .login input[type='submit']:focus,
 .login input[type='submit']:hover {
+  background-color: #005783;
+}
+
+.login input[type='button'] {background-color: #0371A8; color: #eee;font-weight: 700;text-transform: uppercase;}
+.login input[type='button']:focus,
+.login input[type='button']:hover {
   background-color: #005783;
 }
 

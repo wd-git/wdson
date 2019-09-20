@@ -32,13 +32,12 @@ public class UserVO {
 	}
 	
 	// 회원가입 용
-	public UserVO(String u_id, String u_pw, String u_name, String u_email, int u_grade) {
+	public UserVO(String u_id, String u_pw, String u_name, String u_email) {
 		super();
 		this.u_id = u_id;
 		this.u_pw = u_pw;
 		this.u_name = u_name;
 		this.u_email = u_email;
-		this.u_grade = u_grade;
 	}
 
 	public int getU_code() {
