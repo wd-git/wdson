@@ -62,7 +62,7 @@ public class LoginController {
 		if (result != 0) {
 			return "success";
 		} else {
-			return "false";
+			return "failed";
 		}
 	}
 
