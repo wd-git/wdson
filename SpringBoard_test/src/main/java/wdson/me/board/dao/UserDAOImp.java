@@ -29,6 +29,7 @@ public class UserDAOImp implements UserDAO {
 	@Override
 	public int insertUser(UserVO vo) throws Exception {
 		return sqlSession.insert(namespace+".insertUser", vo);
+		
 	}
 	
 }

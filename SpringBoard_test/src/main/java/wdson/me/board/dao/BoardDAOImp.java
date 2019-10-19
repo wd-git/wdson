@@ -3,9 +3,11 @@ package wdson.me.board.dao;
 import java.util.List;
 
 import javax.inject.Inject;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import wdson.me.board.commons.paging.Paging;
 import wdson.me.board.domain.BoardVO;
 
 @Repository
@@ -27,17 +29,33 @@ public class BoardDAOImp implements BoardDAO {
 	@Override
 	public List<BoardVO> listAll() throws Exception {
 		// TODO Auto-generated method stub
-		sqlSession.selectList(namespace+".listBoard");
 		
-		return null;
+		return sqlSession.selectList(namespace+".listBoard");
 	}
 
+	//페이징 처리
+	@Override
+	public List<BoardVO> listPaging(Paging paging) throws Exception {
+		
+		return sqlSession.selectList(namespace+".listPaging", paging);
+	}
+	
+	@Override
+	public int countBoards(Paging paging) throws Exception {
+		
+		return sqlSession.selectOne(namespace+".countBoards", paging);
+	}
+	
 	@Override
 	public BoardVO read(Integer b_no) throws Exception {
 		// TODO Auto-generated method stub
-		sqlSession.selectOne(namespace+".detailBoard", b_no);
 		
-		return null;
+		// 조회수 처리
+		sqlSession.update(namespace+".countUp", b_no);
+		
+		return sqlSession.selectOne(namespace+".detailBoard", b_no);
+		
+		
 	}
 
 	@Override
@@ -50,8 +68,7 @@ public class BoardDAOImp implements BoardDAO {
 	@Override
 	public void update(BoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		sqlSession.update(namespace+".updateBoard", vo);
-		
+		sqlSession.update(namespace+".updateBoard", vo); 
 	}
 
 }

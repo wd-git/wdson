@@ -1,6 +1,6 @@
 package wdson.me.board.domain;
 
-import java.util.Date;
+import java.sql.Date;
  
 public class BoardVO {
  
@@ -13,7 +13,6 @@ public class BoardVO {
     
     public BoardVO(){};
     
-    
     public BoardVO(int b_no, String b_title, String b_detail, String b_writer, Date b_date, int b_count) {
 		super();
 		this.b_no = b_no;
@@ -22,6 +21,13 @@ public class BoardVO {
 		this.b_writer = b_writer;
 		this.b_date = b_date;
 		this.b_count = b_count;
+	}
+
+    public BoardVO(String b_title, String b_detail, String b_writer) {
+		super();
+		this.b_title = b_title;
+		this.b_detail = b_detail;
+		this.b_writer = b_writer;
 	}
 
 
@@ -61,7 +67,5 @@ public class BoardVO {
     public void setB_count(int b_count) {
         this.b_count = b_count;
     }
-    
-    
     
 }

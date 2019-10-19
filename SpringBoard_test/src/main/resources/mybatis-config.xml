@@ -7,7 +7,7 @@
 <configuration>
  
     <typeAliases>
-        <package name="wdson.me.board.domain"/>
+        <package name="wdson.me.board.domain"/>	
     </typeAliases>
  
 </configuration>

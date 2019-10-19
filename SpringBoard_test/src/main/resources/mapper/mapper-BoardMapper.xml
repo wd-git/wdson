@@ -3,29 +3,44 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
  
 <mapper namespace="wdson.me.board.mapper.BoardMapper">
  
     <!-- 게시판 추가하기 -->
     <insert id="insertBoard">
         insert into Board (b_title,b_writer,b_detail,b_date) values (#{b_title},#{b_writer},#{b_detail},SYSDATE())
- 
     </insert>
     
     <!-- 게시판 리스트보기 -->
-    <select id="listBoard" resultType="BoardVO">
+    <select id="listBoard" resultMap="BoardResultMap">
     <![CDATA[
-    
-        select * from Board 
-        order by b_no DESC
+	        select * from Board 
+	        order by b_no DESC
     ]]>
     </select>
+    
+    <!-- 페이징 처리 -->
+    <select id="listPaging" resultMap="BoardResultMap">
+    <![CDATA[
+    		select * from Board
+    		where b_no > 0
+    		order by b_no DESC, b_date DESC
+    		Limit #{pageStart},#{perPageNum}
+   	]]>
+    
+    
+    </select>
+    
     
     <!-- 게시판 상세보기 -->
     <select id="detailBoard" resultType="BoardVO">
             select * from Board where b_no = #{b_no}
     </select>
+    
+    <!-- 조회수 처리 ver.SQL -->
+    <update id="countUp">
+    	update Board set b_count = (select b_count from Board where b_no = #{b_no})+1 where b_no = #{b_no}
+    </update>
  
     <!-- 게시판 삭제하기 -->
     <delete id="deleteBoard">
@@ -34,7 +49,26 @@
     
     <!-- 게시판 수정하기 -->
     <update id="updateBoard">
-        update Board set b_title=#{b_title} , b_detail = #{b_detail} where b_no = #{b_no}
+        update Board set b_title = #{b_title} , b_detail = #{b_detail} where b_no = #{b_no}
     </update>
+    
+    <resultMap id="BoardResultMap" type="BoardVO"> 
+    	<id property="b_no" column="b_no"></id>
+    	<result property="b_title" column="b_title"></result>
+    	<result property="b_detail" column="b_detail"></result>
+    	<result property="b_writer" column="b_writer"></result>
+    	<result property="b_date" column="b_date"></result>
+    	<result property="b_count" column="b_count"></result>
+    </resultMap>
+    
+    <select id="countBoards" resultType="int">
+    	<![CDATA[
+    		select
+    			count(b_no)
+    		from Board
+    		where b_no > 0
+    	]]>
+    </select>
+   
  
 </mapper>
